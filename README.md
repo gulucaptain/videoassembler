@@ -13,7 +13,7 @@ Hang Xu,
 Yu-Gang Jiang
 </br>
 
-[Paper](https://arxiv.org/abs/2311.17338) | [Project](https://github.com/gulucaptain/videoassembler) | code(coming soon)
+[Paper](https://arxiv.org/abs/2311.17338) | [Project Page](https://gulucaptain.github.io/videoassembler/) | code(coming soon)
 
 <p align="center">
 <img src="__assets__/teaser/teaser.png" width="800px"/>  
