@@ -1,6 +1,6 @@
 # VideoAssembler
 
-This repository is the official implementation of [VideoAssembler](https://arxiv.org/abs/2311.17338).
+This repository is the official implementation of:
 
 **[VideoAssembler: Identity-Consistent Video Generation with Reference Entities using Diffusion Model](https://arxiv.org/abs/2311.17338)**
 </br>
