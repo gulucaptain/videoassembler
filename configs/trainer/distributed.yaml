@@ -1,0 +1,22 @@
+defaults:
+  - default.yaml
+
+strategy:
+  _target_: pytorch_lightning.strategies.DDPStrategy
+  find_unused_parameters: false
+  gradient_as_bucket_view: true
+  timeout:
+    _target_: datetime.timedelta
+    hours: 8
+
+# mixed-precision
+precision: 32
+
+# gradient clipping
+gradient_clip_val: 1.0
+
+# number of devices (-1 for all)
+accelerator: gpu
+devices: auto
+
+num_nodes: 1

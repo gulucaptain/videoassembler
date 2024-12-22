@@ -1,0 +1,8 @@
+pexels300k:
+  type: PexelsDataset
+  data_dir: s3://bucket-9329/gujiaxi/data/Pexels300k/
+  csv_subdir: csv
+  tar_subdir: tar
+
+  num_frames: ${data.num_frames}
+  resolution: ${data.resolution}

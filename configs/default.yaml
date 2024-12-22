@@ -1,0 +1,21 @@
+# @package _global_
+
+defaults:
+  - data: default
+  - model: sdvideo
+  - callbacks:
+    - lr_monitor
+    - log_master
+  - loggers:
+    - tensorboard
+  - trainer: distributed
+  - logdir: default
+  - override hydra/hydra_logging: disabled
+  - override hydra/job_logging: disabled
+  - _self_
+
+seed: 42
+
+job_name: "RUN_1"
+
+output_dir: "output"

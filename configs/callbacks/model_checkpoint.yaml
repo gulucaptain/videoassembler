@@ -1,0 +1,7 @@
+model_checkpoint:
+  _target_: pytorch_lightning.callbacks.ModelCheckpoint
+  dirpath: ckpt
+  every_n_train_steps: 10000
+  filename: "model_e{epoch:03d}s{step:08d}"
+  save_last: true
+  save_weights_only: false

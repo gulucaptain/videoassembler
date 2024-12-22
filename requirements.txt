@@ -1,0 +1,14 @@
+torch==1.12.1
+torchvision==0.13.1
+diffusers[torch]==0.14.0
+transformers>=4.25.1
+hydra:hydra-core>=1.2.0
+pytorch-lightning>=1.9.2
+decord==0.6.0
+accelerate
+tensorboard
+modelcards
+omegaconf
+einops
+imageio
+ftfy

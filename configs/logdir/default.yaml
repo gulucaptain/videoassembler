@@ -1,0 +1,13 @@
+# @package _global_
+
+hydra:
+  output_subdir: null
+  job:
+    name: ${job_name}_${now:%Y%m%d}_${now:%H%M%S}
+    chdir: true
+    env_set:
+      TOKENIZERS_PARALLELISM: false
+  run:
+    dir: ${output_dir}/${job_name}
+  sweep:
+    dir: ${output_dir}/${job_name}

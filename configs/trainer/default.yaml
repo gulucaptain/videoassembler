@@ -1,0 +1,13 @@
+_target_: pytorch_lightning.Trainer
+
+check_val_every_n_epoch: null
+max_steps: 8
+val_check_interval: 2
+log_every_n_steps: 2
+
+# disable checkpoint and progress bar because they are included in log_master callback
+enable_checkpointing: false
+enable_progress_bar: false
+
+# disables sampler replacement
+replace_sampler_ddp: false

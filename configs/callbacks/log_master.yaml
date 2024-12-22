@@ -1,0 +1,7 @@
+log_master:
+  _target_: callbacks.LogMaster
+  name: ${job_name}
+  log_file: mlog_${hydra:job.name}.log
+  remote_dir: null
+  monitor: val_clip_score
+  monitor_fn: max

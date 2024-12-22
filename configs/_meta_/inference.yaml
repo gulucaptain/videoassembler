@@ -1,0 +1,76 @@
+# @package _global_
+
+defaults:
+  - /default
+  - override /hydra/job_logging: default
+  - override /data/train:
+    - webvid5s
+  - override /data/val:
+    - webvid5s
+  - _self_
+
+job_name: "magdiff_inference"
+output_dir: "_.outputs_20241206"
+
+callbacks:
+  log_master:
+    remote_dir: ""
+    save_ckpt: true
+
+loggers: 
+  tensorboard:
+    log_graph: True
+    name: "tensorboard_save_dir"
+
+trainer:
+  max_steps: 1
+  log_every_n_steps: 1
+  val_check_interval: 1
+  num_sanity_val_steps: 1
+  enable_progress_bar: True
+  max_epochs: 1
+
+evaluator: pl_validate
+
+model:
+  pretrained_model_path: "/home/user/model/stable-diffusion-2-1-base/"
+  ckpt_path: "/home/user/model/magdiff.pth"
+  lr: 0.00005
+  scheduler_name: constant_with_warmup
+  warmup_steps: 100
+  num_inference_steps: 50  # debug
+  # classifier-free guidance
+  null_text_ratio: 0.15
+  guidance_scale: 7.5
+  # model component variants
+  add_temp_embed: true
+  prepend_first_frame: false
+  add_temp_transformer: false
+  add_temp_conv: true
+  # trainable module
+  freeze_text_encoder: true
+  trainable_modules:
+    - "temp_"
+    - "transformer_blocks\\.\\d+"
+    - "conv_in"
+  # added model config
+  load_pretrained_conv_in: True
+  enable_xformers: False
+  resolution: 256
+  in_channels: 8
+  add_entity_vae: True
+  add_entity_clip: True
+
+data:
+  batch_size_train: 8
+  batch_size_val: 2
+  resolution: 256
+  sample_rate: 1
+  train: 
+    webvid5s: 
+      data_dir: /home/user/data/magdiff/videos
+      csv_subdir: annotations_76k.jsonl
+  val: 
+    webvid5s: 
+      data_dir: /home/user/data/magdiff/val_videos
+      csv_subdir: annotations_val.jsonl

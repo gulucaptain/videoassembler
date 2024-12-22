@@ -1,0 +1,21 @@
+_target_: model.SDVideoModel
+
+pretrained_model_path: null
+ckpt_path: null
+
+# train
+null_text_ratio: 0.1
+lr: 0.001
+weight_decay: 0.01
+warmup_steps: 10
+
+# inference
+num_inference_steps: 50
+guidance_scale: 7.5
+
+# input resolution
+resolution: ${data.resolution}
+
+# memory saving techniques
+enable_gradient_checkpointing: true
+enable_xformers: true

@@ -1,0 +1,15 @@
+_target_: data.SDVideoDataModule
+
+defaults:
+  - train: null
+  - train_alt: null
+  - val: null
+  - _self_
+
+batch_size_train: 1
+batch_size_val: 1
+
+num_frames: 8
+resolution: 512
+
+num_workers: 8
